@@ -5,7 +5,6 @@
 
 int _printf(char *format, ...)
 {
-	int printed = 0;
 	char *i = format;
 	va_list args;
 	int n = 0;
