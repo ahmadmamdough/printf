@@ -113,7 +113,7 @@ int get_op(va_list args, char c)
 		if (tmp < 0)
 		{
 			putchar('-');
-			tmp *= -1;
+			tmp *= -1, i++;
 		}
 		s = itoa(tmp, 10);
 		i = pt_s(s);
