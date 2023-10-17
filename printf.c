@@ -17,6 +17,7 @@ int _printf(char *format, ...)
 
 		if (*i == '%')
 		{
+			n -= 2;
 			n += get_op(args, *(++i));
 			i++;
 		}
@@ -59,6 +60,7 @@ int get_op(va_list args, char c)
 	{
 		s = va_arg(args, char *);
 		i = pt_s(s);
+		return (i);
 	}
 	else if (c == 'c')
 	{
