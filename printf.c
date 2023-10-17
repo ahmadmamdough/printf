@@ -66,7 +66,10 @@ int ps(char *s)
 int pt_s(char *s)
 {
 	int n = 0;
-
+	if (!s)
+	{
+		*s = "(NULL)"
+	}
 	while (*s != '\0')
 	{
 		putchar(*s);
