@@ -9,7 +9,8 @@
  */
 int _printf(char *format, ...)
 {
-	unsigned int j = 0, res;
+	unsigned int j = 0;
+	int res;
 	char *i = format;
 	va_list args;
 	int n = 0;
