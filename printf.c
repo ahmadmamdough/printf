@@ -9,11 +9,12 @@
  */
 int _printf(char *format, ...)
 {
+	unsigned int j = 0;
 	char *i = format;
 	va_list args;
 	int n = 0;
 
-	if (!format || (format[i] == '%' && !format[i + 1]))
+	if (!format || (format[j] == '%' && !format[j + 1]))
 		return (-1);
 
 	va_start(args, format);
