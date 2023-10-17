@@ -88,7 +88,7 @@ int pt_s(char *s)
 int get_op(va_list args, char c)
 {
 	int i = 0, tmp;
-	char *s, *str;
+	char *s;
 
 	if (c == 's')
 	{
