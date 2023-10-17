@@ -110,8 +110,13 @@ int get_op(va_list args, char c)
 	else if (c == 'd' || c == 'i')
 	{
 		tmp = va_arg(args, int);
-		str = itoa(tmp, 10);
-		i = pt_s(str);
+		if (tmp < 0)
+		{
+			putchar('-');
+			tmp *= -1;
+		}
+		s = itoa(tmp, 10);
+		i = pt_s(s);
 		return (i);
 	}
 	else
