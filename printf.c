@@ -88,7 +88,7 @@ int pt_s(char *s)
 int get_op(va_list args, char c)
 {
 	int i = 0, tmp;
-	char *s, str;
+	char *s, *str;
 
 	if (c == 's')
 	{
@@ -111,7 +111,7 @@ int get_op(va_list args, char c)
 	{
 		tmp = va_arg(args, int);
 		str = itoa(tmp, 10);
-		i = pt_s(s);
+		i = pt_s(str);
 		return (i);
 	}
 	else
