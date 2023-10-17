@@ -2,7 +2,11 @@
 #include <unistd.h>
 #include <stdio.h>
 
-
+/**
+ * _printf - entry point
+ * @format: the format string
+ * Return: no. of printed chars
+ */
 int _printf(char *format, ...)
 {
 	char *i = format;
@@ -22,11 +26,17 @@ int _printf(char *format, ...)
 			i++;
 		}
 	}
-	
+
 	va_end(args);
 
 	return (n + i - format);
 }
+
+/**
+ * ps - prints until it meets % or NULL
+ * @s: the string to print
+ * Return: number of printed items
+ */
 
 int ps(char *s)
 {
@@ -40,7 +50,11 @@ int ps(char *s)
 	return (i);
 }
 
-
+/**
+ * pt_s - prints the whole string
+ * @s: the string to print
+ * Return: no. of printed items
+ */
 int pt_s(char *s)
 {
 	int n = 0;
@@ -53,7 +67,12 @@ int pt_s(char *s)
 	}
 	return (n);
 }
-
+/**
+ * get_op - calls function
+ * @args: the args list
+ * @c: the place holder
+ * Return: the printed items
+ */
 int get_op(va_list args, char c)
 {
 	int i = 0;
