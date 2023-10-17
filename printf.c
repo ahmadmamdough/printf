@@ -105,8 +105,9 @@ int get_op(va_list args, char c)
 	}
 	else
 	{
+		putchar('%');
 		putchar(c);
-		return (-1);
+		return (2);
 	}
 	return (0);
 }
