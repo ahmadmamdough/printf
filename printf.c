@@ -22,6 +22,9 @@ int _printf(char *format, ...)
 			i++;
 		}
 	}
+	
+	va_end(args);
+
 	return (n + i - format);
 }
 
