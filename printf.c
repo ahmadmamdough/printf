@@ -9,7 +9,7 @@
  */
 int _printf(char *format, ...)
 {
-	unsigned int j = 0;
+	unsigned int j = 0, res;
 	char *i = format;
 	va_list args;
 	int n = 0;
@@ -26,7 +26,10 @@ int _printf(char *format, ...)
 		if (*i == '%')
 		{
 			n -= 2;
-			n += get_op(args, *(++i));
+			res = get_op(args, *(++i));
+			if (res == -1)
+				return (-1);
+			n += res;
 			i++;
 		}
 	}
@@ -99,5 +102,7 @@ int get_op(va_list args, char c)
 		putchar('%');
 		return (1);
 	}
+	else
+		return (-1);
 	return (0);
 }
