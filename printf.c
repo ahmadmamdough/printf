@@ -60,7 +60,7 @@ int ps(char *s)
 
 /**
  * pt_s - prints the whole string
- * @s: the string to print
+ * @args: the string to print
  * Return: no. of printed items
  */
 int pt_s(va_list args)
@@ -89,7 +89,7 @@ int pt_s(va_list args)
 int get_op(va_list args, char c)
 {
 	op_t ops[] = {
-		{'c', print_ch}, 
+		{'c', print_ch},
 		{'s', pt_s},
 		{'d', print_d},
 		{'i', print_d},
@@ -97,7 +97,7 @@ int get_op(va_list args, char c)
 	};
 	int i = 0;
 
-	UNUSED (args);
+	UNUSED(args);
 	while (ops[i].op != c && i < 5)
 		i++;
 
@@ -106,6 +106,6 @@ int get_op(va_list args, char c)
 		putchar('%'), putchar(c);
 		return (2);
 	}
-	return (ops[i].f (args));
+	return (ops[i].f(args));
 
 }
