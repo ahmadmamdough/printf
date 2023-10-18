@@ -89,6 +89,7 @@ int get_op(va_list args, char c)
 {
 	int i = 0, tmp;
 	char *s;
+	char buffer[32];
 
 	if (c == 's')
 	{
@@ -109,14 +110,14 @@ int get_op(va_list args, char c)
 	}
 	else if (c == 'd' || c == 'i')
 	{
-		tmp = va_arg(args, int);
+		tmp = va_arg(args, unsigned int);
 		if (tmp < 0)
 		{
+			tmp *= -1;
 			putchar('-');
-			tmp *= -1, i++;
+			i++;
 		}
-		s = itoa(tmp, 10);
-		i = pt_s(s);
+		i = pt_s(itoa(tmp, 10));
 		return (i);
 	}
 	else
