@@ -89,7 +89,6 @@ int get_op(va_list args, char c)
 {
 	int i = 0, tmp;
 	char *s;
-	char buffer[32];
 
 	if (c == 's')
 	{
