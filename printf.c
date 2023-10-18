@@ -63,8 +63,9 @@ int ps(char *s)
  * @s: the string to print
  * Return: no. of printed items
  */
-int pt_s(char *s)
+int pt_s(va_list args)
 {
+	char *s = va_arg(args, char *);
 	int n = 0;
 
 	if (!s)
@@ -87,43 +88,24 @@ int pt_s(char *s)
  */
 int get_op(va_list args, char c)
 {
-	int i = 0, tmp;
-	char *s;
+	op_t ops[] = {
+		{'c', print_ch}, 
+		{'s', pt_s},
+		{'d', print_d},
+		{'i', print_d},
+		{'%', print_percent}
+	};
+	int i = 0;
+	int res = 0;
 
-	if (c == 's')
+	while (ops[i].op != c && i < 5)
+		i++;
+
+	if (i == 5)
 	{
-		s = va_arg(args, char *);
-		i = pt_s(s);
-		return (i);
-	}
-	else if (c == 'c')
-	{
-		i = va_arg(args, int);
-		putchar(i);
-		return (1);
-	}
-	else if (c == '%')
-	{
-		putchar('%');
-		return (1);
-	}
-	else if (c == 'd' || c == 'i')
-	{
-		tmp = va_arg(args, unsigned int);
-		if (tmp < 0)
-		{
-			tmp *= -1;
-			putchar('-');
-			i++;
-		}
-		i = pt_s(itoa(tmp, 10));
-		return (i);
-	}
-	else
-	{
-		putchar('%');
-		putchar(c);
+		putchar('%'), putchar(c);
 		return (2);
 	}
-	return (0);
+	return (ops[i].f (args));
+
 }
