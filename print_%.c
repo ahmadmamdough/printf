@@ -8,5 +8,8 @@
 int print_percent(va_list args)
 {
 	putchar('%');
+	
+	UNUSED(args);
+
 	return (1);
 }

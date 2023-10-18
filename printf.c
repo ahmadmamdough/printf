@@ -96,8 +96,8 @@ int get_op(va_list args, char c)
 		{'%', print_percent}
 	};
 	int i = 0;
-	int res = 0;
 
+	UNUSED (args);
 	while (ops[i].op != c && i < 5)
 		i++;
 
